@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "movies"
+version = "0.0.1"
+description = "An app to fetch watchablity information for an arbitrary list of movies"
+authors = ["Mark Reckard <mark.reckard@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.9.5"
+shared-items = {path = "../shared-items", develop = true}
+# shared-items = {path = "../shared-items/dist/shared_items-0.0.1-py3-none-any.whl", develop = true}
+justwatch = "^0.5.1"
+pydantic = "^1.10.5"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.0.0"
+black = "^23.1.0"

@@ -85,7 +85,7 @@ class Movie(BaseModel):
   backdrops: list[dict]
   short_description: str
   original_title: str
-  localized_release_date: str
+  localized_release_date: Optional[str]
   clips: list[dict]
   credits: list[dict]
   external_ids: list[dict]

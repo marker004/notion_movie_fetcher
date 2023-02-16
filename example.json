@@ -1,0 +1,399 @@
+{
+    "jw_entity_id": "tm1067559",
+    "id": 1067559,
+    "title": "The Fabelmans",
+    "full_path": "/us/movie/the-fabelmans",
+    "full_paths": {
+        "MOVIE_DETAIL_OVERVIEW": "/us/movie/the-fabelmans"
+    },
+    "poster": "/poster/302071361/{profile}",
+    "poster_blur_hash": "TLDbsEjZ0g?FWBof5ANH=_9bWCoL",
+    "original_release_year": 2022,
+    "object_type": "movie",
+    "offers": [
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 2,
+            "package_short_name": "itu",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_2",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://tv.apple.com/us/movie/the-fabelmans/umc.cmc.4lgvd75jcuqp79fuar3e9p9zh?playableId=tvs.sbd.9001%3A1655490626",
+                "deeplink_rokuos": "launch/551012?contentID=https%3A%2F%2Ftv.apple.com%2Fus%2Fmovie%2Fthe-fabelmans%2Fumc.cmc.4lgvd75jcuqp79fuar3e9p9zh%3FplayableId%3Dtvs.sbd.9001%253A1655490626&MediaType=movie"
+            },
+            "presentation_type": "4k",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 2,
+            "package_short_name": "itu",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_2",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://tv.apple.com/us/movie/the-fabelmans/umc.cmc.4lgvd75jcuqp79fuar3e9p9zh?playableId=tvs.sbd.9001%3A1655490626",
+                "deeplink_rokuos": "launch/551012?contentID=https%3A%2F%2Ftv.apple.com%2Fus%2Fmovie%2Fthe-fabelmans%2Fumc.cmc.4lgvd75jcuqp79fuar3e9p9zh%3FplayableId%3Dtvs.sbd.9001%253A1655490626&MediaType=movie"
+            },
+            "presentation_type": "hd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 2,
+            "package_short_name": "itu",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_2",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://tv.apple.com/us/movie/the-fabelmans/umc.cmc.4lgvd75jcuqp79fuar3e9p9zh?playableId=tvs.sbd.9001%3A1655490626",
+                "deeplink_rokuos": "launch/551012?contentID=https%3A%2F%2Ftv.apple.com%2Fus%2Fmovie%2Fthe-fabelmans%2Fumc.cmc.4lgvd75jcuqp79fuar3e9p9zh%3FplayableId%3Dtvs.sbd.9001%253A1655490626&MediaType=movie"
+            },
+            "presentation_type": "sd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 3,
+            "package_short_name": "ply",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_3",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://play.google.com/store/movies/details/The_Fabelmans?gl=US&hl=en&id=IG-Mv-_cez8.P"
+            },
+            "presentation_type": "4k",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 7,
+            "package_short_name": "vdu",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_7",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.vudu.com/content/movies/details/The-Fabelmans/2157929",
+                "deeplink_rokuos": "launch/13842?contentID=2157929&MediaType=movie"
+            },
+            "presentation_type": "4k",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 7,
+            "package_short_name": "vdu",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_7",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.vudu.com/content/movies/details/The-Fabelmans/2157929",
+                "deeplink_rokuos": "launch/13842?contentID=2157929&MediaType=movie"
+            },
+            "presentation_type": "hd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 7,
+            "package_short_name": "vdu",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_7",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.vudu.com/content/movies/details/The-Fabelmans/2157929",
+                "deeplink_rokuos": "launch/13842?contentID=2157929&MediaType=movie"
+            },
+            "presentation_type": "sd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 10,
+            "package_short_name": "amz",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_10",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://watch.amazon.com/detail?gti=amzn1.dv.gti.cab2baaa-18ea-43da-b423-69fd51f558f7",
+                "deeplink_web": "https://watch.amazon.com/watch?gti=amzn1.dv.gti.cab2baaa-18ea-43da-b423-69fd51f558f7",
+                "deeplink_rokuos": "launch/13?contentID=B0B8MM2HM8&MediaType=movie"
+            },
+            "presentation_type": "4k",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 10,
+            "package_short_name": "amz",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_10",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://watch.amazon.com/detail?gti=amzn1.dv.gti.cab2baaa-18ea-43da-b423-69fd51f558f7",
+                "deeplink_web": "https://watch.amazon.com/watch?gti=amzn1.dv.gti.cab2baaa-18ea-43da-b423-69fd51f558f7",
+                "deeplink_rokuos": "launch/13?contentID=B0B8MM2HM8&MediaType=movie"
+            },
+            "presentation_type": "hd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 10,
+            "package_short_name": "amz",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_10",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://watch.amazon.com/detail?gti=amzn1.dv.gti.cab2baaa-18ea-43da-b423-69fd51f558f7",
+                "deeplink_web": "https://watch.amazon.com/watch?gti=amzn1.dv.gti.cab2baaa-18ea-43da-b423-69fd51f558f7",
+                "deeplink_rokuos": "launch/13?contentID=B0B8MM2HM8&MediaType=movie"
+            },
+            "presentation_type": "sd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 68,
+            "package_short_name": "msf",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_68",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.microsoft.com/en-us/p/the-fabelmans/8d6kgwxz53d0"
+            },
+            "presentation_type": "4k",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 68,
+            "package_short_name": "msf",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_68",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.microsoft.com/en-us/p/the-fabelmans/8d6kgwxz53d0"
+            },
+            "presentation_type": "hd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 68,
+            "package_short_name": "msf",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_68",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.microsoft.com/en-us/p/the-fabelmans/8d6kgwxz53d0"
+            },
+            "presentation_type": "sd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 192,
+            "package_short_name": "yot",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_192",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.youtube.com/results?search_query=The+Fabelmans%2Bmovie"
+            },
+            "presentation_type": "4k",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 279,
+            "package_short_name": "rbx",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_279",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.redbox.com/ondemand-movies/the-fabelmans"
+            },
+            "presentation_type": "hd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 279,
+            "package_short_name": "rbx",
+            "retail_price": 19.99,
+            "last_change_retail_price": 24.99,
+            "last_change_difference": -5,
+            "last_change_percent": -20.008003,
+            "last_change_date": "2023-01-17",
+            "last_change_date_provider_id": "2023-01-17_279",
+            "currency": "USD",
+            "urls": {
+                "standard_web": "https://www.redbox.com/ondemand-movies/the-fabelmans"
+            },
+            "presentation_type": "sd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 352,
+            "package_short_name": "amo",
+            "retail_price": 19.99,
+            "currency": "USD",
+            "urls": {
+                "standard_web": "http://www.amctheatres.com/movies/the-fabelmans-68486"
+            },
+            "presentation_type": "hd",
+            "country": "US"
+        },
+        {
+            "jw_entity_id": "tm1067559",
+            "monetization_type": "buy",
+            "provider_id": 352,
+            "package_short_name": "amo",
+            "retail_price": 19.99,
+            "currency": "USD",
+            "urls": {
+                "standard_web": "http://www.amctheatres.com/movies/the-fabelmans-68486"
+            },
+            "presentation_type": "sd",
+            "country": "US"
+        }
+    ],
+    "scoring": [
+        {
+            "provider_type": "tmdb:id",
+            "value": 804095
+        },
+        {
+            "provider_type": "jw:popular_180_day",
+            "value": 318.78
+        },
+        {
+            "provider_type": "tmdb:popularity",
+            "value": 128.01
+        },
+        {
+            "provider_type": "tmdb:score",
+            "value": 8.034
+        },
+        {
+            "provider_type": "jw:popular_1_day",
+            "value": 833.52
+        },
+        {
+            "provider_type": "imdb:multiplied",
+            "value": 280626.5
+        },
+        {
+            "provider_type": "imdb:votes",
+            "value": 36445
+        },
+        {
+            "provider_type": "imdb:score",
+            "value": 7.7
+        },
+        {
+            "provider_type": "tmdb:votes",
+            "value": 522
+        },
+        {
+            "provider_type": "imdb:popularity",
+            "value": 4509
+        },
+        {
+            "provider_type": "jw:popular_30_day",
+            "value": 692.31
+        },
+        {
+            "provider_type": "jw:popular_7_day",
+            "value": 781.94
+        },
+        {
+            "provider_type": "jw:viral",
+            "value": 0.16
+        },
+        {
+            "provider_type": "jw:trending_7_day",
+            "value": 639.24
+        }
+    ]
+}
