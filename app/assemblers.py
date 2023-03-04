@@ -56,8 +56,9 @@ class NotionMovieItem:
 
         return attrs
 
-class MovieAssembler():
-    def __init__(self, movie: Movie ) -> None:
+
+class MovieAssembler:
+    def __init__(self, movie: Movie) -> None:
         self.movie = movie
 
     def format_runtime(self) -> str:
@@ -73,7 +74,9 @@ class MovieAssembler():
         return self.movie.original_release_year
 
     def format_location(self) -> Optional[str]:
-        return self.movie.best_offer.human_text if self.movie.relevant_offers() else None
+        return (
+            self.movie.best_offer.human_text if self.movie.relevant_offers() else None
+        )
 
     def notion_movie_item(self) -> NotionMovieItem:
         return NotionMovieItem(

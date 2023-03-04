@@ -11,6 +11,7 @@ just_watch = JustWatch(country="US")
 
 notion = Notion()
 
+
 class PartialJustWatchResponse(TypedDict):
     items: list[dict]
 
@@ -39,6 +40,7 @@ def search_just_watch(movie_title: str) -> Optional[JustWatchSearchResult]:
         None,
     )
 
+
 @measure_execution("Fetching relevant providers")
 def fetch_relevant_providers() -> list[Provider]:
     provider_results: list[dict] = just_watch.get_providers()
@@ -54,6 +56,7 @@ def get_movies_from_just_watch(
         id: just_watch.get_title(title_id=jw_search_result.id)
         for id, jw_search_result in jw_search_results.items()
     }
+
 
 @measure_execution("Inserting into database...")
 def upsert_to_notion_database(all_props: dict[str, dict]) -> None:
