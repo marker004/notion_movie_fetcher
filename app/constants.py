@@ -1,4 +1,13 @@
-[
+from typing import TypedDict
+
+
+class PartialProvider(TypedDict):
+    clear_name: str
+    short_name: str
+
+
+
+RELEVANT_STREAMING_SERVICES: list[PartialProvider] = [
   {"clear_name": "Netflix", "short_name": "nfx"},
   {"clear_name": "Amazon Prime Video", "short_name": "amp"},
   {"clear_name": "Disney Plus", "short_name": "dnp"},
