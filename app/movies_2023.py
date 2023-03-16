@@ -1,7 +1,7 @@
 from typing import Optional
 from shared_items.interfaces import Notion
 from shared_items.utils import pp, measure_execution
-from assemblers import MovieAssembler
+from assemblers.movie_assembler import MovieAssembler
 from models import Movie
 from fetchers import (
     fetch_relevant_providers,

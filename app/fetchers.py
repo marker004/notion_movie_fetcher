@@ -26,9 +26,9 @@ def get_movie_titles_from_notion() -> dict[str, str]:
     }
 
 
-def search_just_watch(movie_title: str) -> Optional[JustWatchSearchResult]:
+def search_just_watch(movie_title: str, release_year=2022) -> Optional[JustWatchSearchResult]:
     jw_raw_results: PartialJustWatchResponse = just_watch.search_for_item(
-        query=movie_title, release_year_from=2022
+        query=movie_title, release_year_from=release_year, release_year_until=release_year+1
     )
 
     search_results = list(
