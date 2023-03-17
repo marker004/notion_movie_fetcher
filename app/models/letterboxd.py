@@ -19,6 +19,7 @@ class LetterboxdMovie(BaseModel):
             if self.justwatch_watch_option.is_streaming():
                 return self.justwatch_watch_option.name
             else:
+                # todo: add location at end (ie "Rent $9.99 (Google Play)")
                 return f"{self.justwatch_watch_option.type.capitalize()} ${self.justwatch_watch_option.price}"
         else:
             return ''

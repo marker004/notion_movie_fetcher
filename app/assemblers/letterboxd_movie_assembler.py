@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import Optional
 from models.letterboxd import LetterboxdMovie
 from pydantic.dataclasses import dataclass
@@ -13,6 +14,39 @@ class NotionMovieItem:
     letterboxd_id: str
     letterboxd_link: str
     notion_id: Optional[str] = None
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, NotionMovieItem):
+            return self.__hash__() == other.__hash__()
+        else:
+            return False
+
+    def __hash__(self):
+        dicted = {**self.__dict__}
+        dicted.pop("notion_id", None)
+        return hash(tuple(sorted(dicted.items())))
+
+    @classmethod
+    def from_notion_interface(self, notion_row: dict) -> NotionMovieItem:
+        notion_id = notion_row["id"]
+        properties = notion_row["properties"]
+
+        title = properties["Title"]["title"][0]["plain_text"]
+        runtime = properties["Runtime"]["rich_text"][0]["plain_text"]
+        location = properties["Location"]["rich_text"][0]["plain_text"]
+        letterboxd_id = properties["Letterboxd ID"]["rich_text"][0]["plain_text"]
+        letterboxd_link = properties["Letterboxd Link"]["url"]
+        year = properties['Year']['number']
+
+        return NotionMovieItem(
+            title=title,
+            runtime=runtime,
+            location=location,
+            letterboxd_id=letterboxd_id,
+            letterboxd_link=letterboxd_link,
+            year=year,
+            notion_id=notion_id,
+        )
 
     def format_for_notion_interface(self) -> list[NotionProp]:
         return [

@@ -15,6 +15,7 @@ from models.letterboxd import (
 
 from shared_items.interfaces import Notion
 from shared_items.utils import pp, measure_execution
+from notion_repository import NotionRepo
 from utils import async_aiohttp_get_all_json, async_aiohttp_get_all_text
 
 notion = Notion()
@@ -33,8 +34,6 @@ LETTERBOXD_MOVIE_DATA_ATTRS = [
 ]
 
 LETTERBOXD_LIST_URL = "https://letterboxd.com/markreckard/watchlist"
-MOVIE_DATABASE_ID = '33378c56ba7249b5ac88bf5f4753e7a2'
-
 
 def find_movies_from_letterboxd_list_page(soup: BeautifulSoup) -> list[dict]:
     items = soup.find_all("div", {"class": "really-lazy-load"})
@@ -142,9 +141,9 @@ def fetch_jw_results_via_letterboxd(
 all_movies = fetch_all_movies_from_letterboxd()
 letterboxd_collection = LetterboxdResponseCollection(movies=all_movies)
 best_options = fetch_jw_results_via_letterboxd(letterboxd_collection.movies)
-x = list(zip(letterboxd_collection.movies, best_options))
-import pdb; pdb.set_trace()
-exit()
+# x = list(zip(letterboxd_collection.movies, best_options))
+# import pdb; pdb.set_trace()
+# exit()
 extra_data = fetch_film_data_from_letterboxd(letterboxd_collection.movies)
 
 
@@ -160,25 +159,6 @@ def assemble_notion_items(movies: list[LetterboxdMovie]):
     ]
 
 
-@measure_execution("inserting to notion database")
-def insert_to_database(all_props: list[dict]):
-    total: int = len(all_props)
-    row_creator = notion.create_row_for_database(MOVIE_DATABASE_ID)
-    for idx, props in enumerate(all_props):
-        row_creator(props)
-        print(idx / total, end="\r", flush=True)
-
 assembled_items = assemble_notion_items(letterboxd_collection.movies)
 
-all_props = [
-    notion.assemble_props(movie_item.format_for_notion_interface())
-    for movie_item in assembled_items
-]
-
-
-# update strategy:
-# fetch existing rows from notion,
-# get all from watchlist,
-# only delete old rows that are not already there,
-# only insert rows that are new
-insert_to_database(all_props)
+NotionRepo(assembled_items).update_them_shits()
