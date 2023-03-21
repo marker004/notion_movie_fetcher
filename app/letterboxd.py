@@ -142,9 +142,6 @@ def fetch_jw_results_via_letterboxd(
 all_movies = fetch_all_movies_from_letterboxd()
 letterboxd_collection = LetterboxdResponseCollection(movies=all_movies)
 best_options = fetch_jw_results_via_letterboxd(letterboxd_collection.movies)
-# x = list(zip(letterboxd_collection.movies, best_options))
-# import pdb; pdb.set_trace()
-# exit()
 extra_data = fetch_film_data_from_letterboxd(letterboxd_collection.movies)
 
 
