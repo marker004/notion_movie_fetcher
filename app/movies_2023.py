@@ -18,6 +18,7 @@ relevant_providers = fetch_relevant_providers()
 
 existing_movie_titles_from_notion = get_movie_titles_from_notion()
 
+
 @measure_execution("Fetching Just Watch Info")
 def fetch_all_just_watch_info(
     ids_with_titles: dict[str, str]

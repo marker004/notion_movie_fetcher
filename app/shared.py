@@ -4,7 +4,8 @@ from shared_items.utils import pp, measure_execution
 notion = Notion()
 
 
-MOVIE_DATABASE_ID = '33378c56ba7249b5ac88bf5f4753e7a2'
+MOVIE_DATABASE_ID = "33378c56ba7249b5ac88bf5f4753e7a2"
+
 
 @measure_execution("inserting to notion database")
 def insert_to_database(all_props: list[dict]):

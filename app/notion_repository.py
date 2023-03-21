@@ -33,7 +33,7 @@ def fetch_movies():
 
 
 class NotionRepo:
-    def __init__( self, fresh_movie_items: list[NotionMovieItem] ):
+    def __init__(self, fresh_movie_items: list[NotionMovieItem]):
         self.fresh_movie_items = fresh_movie_items
 
     def update_them_shits(self) -> None:
@@ -57,9 +57,7 @@ class NotionRepo:
             for notion_item in notion_rows
         ]
 
-    def assemble_insertion_notion_props(
-        self, insertion_list: list[NotionMovieItem]
-    ):
+    def assemble_insertion_notion_props(self, insertion_list: list[NotionMovieItem]):
         return [
             notion.assemble_props(item.format_for_notion_interface())
             for item in insertion_list
@@ -69,11 +67,7 @@ class NotionRepo:
         self,
         existing_items: list[NotionMovieItem],
         fresh_items: list[NotionMovieItem],
-    ) -> tuple[
-        list[NotionMovieItem],
-        list[NotionMovieItem],
-        list[NotionMovieItem],
-    ]:
+    ) -> tuple[list[NotionMovieItem], list[NotionMovieItem], list[NotionMovieItem]]:
         delete_list = list(set(existing_items) - set(fresh_items))
         do_nothing_list = list(set(fresh_items) & set(existing_items))
         add_list = list(set(fresh_items) - set(existing_items))

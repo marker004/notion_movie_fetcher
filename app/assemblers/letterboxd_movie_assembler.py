@@ -5,6 +5,7 @@ from pydantic.dataclasses import dataclass
 from shared_items.interfaces import Prop as NotionProp
 from shared_items.utils import convert_runtime
 
+
 @dataclass
 class NotionMovieItem:
     title: str
@@ -36,7 +37,7 @@ class NotionMovieItem:
         location = properties["Location"]["rich_text"][0]["plain_text"]
         letterboxd_id = properties["Letterboxd ID"]["rich_text"][0]["plain_text"]
         letterboxd_link = properties["Letterboxd Link"]["url"]
-        year = properties['Year']['number']
+        year = properties["Year"]["number"]
 
         return NotionMovieItem(
             title=title,
@@ -91,8 +92,9 @@ class NotionMovieItem:
                 "content": {
                     "content": self.letterboxd_link,
                 },
-            }
+            },
         ]
+
 
 class Assembler:
     def __init__(self, movie: LetterboxdMovie) -> None:
@@ -102,7 +104,7 @@ class Assembler:
         return self.movie.title
 
     def format_runtime(self) -> str:
-        return convert_runtime(int(self.movie.runtime)) if self.movie.runtime else ''
+        return convert_runtime(int(self.movie.runtime)) if self.movie.runtime else ""
 
     def format_location(self) -> str:
         return self.movie.formatted_location()

@@ -1,6 +1,7 @@
 from aiohttp import ClientSession
 import asyncio
 
+
 async def async_aiohttp_get_all_text(urls):
     async with ClientSession() as session:
 

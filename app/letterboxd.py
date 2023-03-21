@@ -35,6 +35,7 @@ LETTERBOXD_MOVIE_DATA_ATTRS = [
 
 LETTERBOXD_LIST_URL = "https://letterboxd.com/markreckard/watchlist"
 
+
 def find_movies_from_letterboxd_list_page(soup: BeautifulSoup) -> list[dict]:
     items = soup.find_all("div", {"class": "really-lazy-load"})
 
@@ -88,6 +89,7 @@ def fetch_all_movies_from_letterboxd() -> list[dict]:
 
     return every_relevant_attrs
 
+
 class ExtraDatasDict(TypedDict):
     runtime: list[str]
     genres_list: list[list[str]]
@@ -96,8 +98,7 @@ class ExtraDatasDict(TypedDict):
 @measure_execution("fetching extra_data from letterboxd/justwatch")
 def fetch_film_data_from_letterboxd(movies: list[LetterboxdMovie]):
     all_film_page_urls = [
-        f"https://letterboxd.com{movie.letterboxd_url}"
-        for movie in movies
+        f"https://letterboxd.com{movie.letterboxd_url}" for movie in movies
     ]
 
     results = asyncio.run(async_aiohttp_get_all_text(all_film_page_urls))
@@ -106,17 +107,17 @@ def fetch_film_data_from_letterboxd(movies: list[LetterboxdMovie]):
 
     for page in results:
         soup = BeautifulSoup(page, "html.parser")
-        runtime_el = soup.find('p', {"class": "text-link"})
+        runtime_el = soup.find("p", {"class": "text-link"})
         if isinstance(runtime_el, Tag):
             runtime_strings = list(runtime_el.stripped_strings)
-            runtime = runtime_strings[0].split('\xa0')[0]
-            extra_datas['runtime'].append(runtime)
-        genres_parent_el = soup.find('div', {"id": "tab-genres"})
+            runtime = runtime_strings[0].split("\xa0")[0]
+            extra_datas["runtime"].append(runtime)
+        genres_parent_el = soup.find("div", {"id": "tab-genres"})
         if isinstance(genres_parent_el, Tag):
-            genre_el = genres_parent_el.find('div')
+            genre_el = genres_parent_el.find("div")
             if isinstance(genre_el, Tag):
                 genres_list = list(genre_el.stripped_strings)
-                extra_datas['genres_list'].append(genres_list)
+                extra_datas["genres_list"].append(genres_list)
 
     return extra_datas
 
@@ -149,14 +150,12 @@ extra_data = fetch_film_data_from_letterboxd(letterboxd_collection.movies)
 
 for idx, movie in enumerate(letterboxd_collection.movies):
     movie.justwatch_watch_option = best_options[idx]
-    movie.runtime = extra_data['runtime'][idx]
-    movie.genres = extra_data['genres_list'][idx]
+    movie.runtime = extra_data["runtime"][idx]
+    movie.genres = extra_data["genres_list"][idx]
 
 
 def assemble_notion_items(movies: list[LetterboxdMovie]):
-    return [
-        LetterBoxdMovieAssembler(movie).notion_movie_item() for movie in movies
-    ]
+    return [LetterBoxdMovieAssembler(movie).notion_movie_item() for movie in movies]
 
 
 assembled_items = assemble_notion_items(letterboxd_collection.movies)

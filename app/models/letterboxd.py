@@ -22,7 +22,7 @@ class LetterboxdMovie(BaseModel):
                 # todo: add location at end (ie "Rent $9.99 (Google Play)")
                 return f"{self.justwatch_watch_option.type.capitalize()} ${self.justwatch_watch_option.price}"
         else:
-            return ''
+            return ""
 
 
 class LetterboxdResponseCollection(BaseModel):
@@ -30,10 +30,11 @@ class LetterboxdResponseCollection(BaseModel):
 
 
 watch_option_types = {
-    'flatrate': 1,
-    'free': 1,
-    'ads': 2,
+    "flatrate": 1,
+    "free": 1,
+    "ads": 2,
 }
+
 
 # JustWatch things below
 class WatchOption(BaseModel):
@@ -51,13 +52,13 @@ class WatchOption(BaseModel):
         return value or "0"
 
     def is_streaming(self) -> bool:
-        return self.type == 'flatrate' or self.type == 'ads' or self.type == 'free'
+        return self.type == "flatrate" or self.type == "ads" or self.type == "free"
 
     def is_rental(self) -> bool:
-        return self.type == 'rent'
+        return self.type == "rent"
 
     def is_buy(self) -> bool:
-        return self.type == 'buy'
+        return self.type == "buy"
 
 
 class WatchOptionGrouping(BaseModel):
