@@ -85,6 +85,7 @@ class NotionRepo:
 
     @measure_execution("inserting fresh movies")
     def insert_new_movies(self, insert_list: list[NotionMovieItem]):
+        print([(item.title, item.location) for item in insert_list if item.location])
         insert_list_props = self.assemble_insertion_notion_props(insert_list)
         insert_to_database(insert_list_props)
         print(f"inserted {len(insert_list)} movies")
