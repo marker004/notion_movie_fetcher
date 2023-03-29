@@ -1,8 +1,9 @@
 from __future__ import annotations
 from typing import Literal, Optional, cast
+from urllib.parse import urljoin, urlparse
 from pydantic import BaseModel, Field, validator
 from constants import RELEVANT_STREAMING_SERVICES
-from shared_items.utils import pp, reversor
+from shared_items.utils import pp
 
 
 class LetterboxdMovie(BaseModel):
@@ -13,6 +14,7 @@ class LetterboxdMovie(BaseModel):
     justwatch_watch_option: Optional[WatchOption] = None
     runtime: Optional[str] = None
     genres: Optional[list[str]] = []
+    poster_url: str
 
     def formatted_location(self) -> str:
         if self.justwatch_watch_option:
@@ -23,6 +25,10 @@ class LetterboxdMovie(BaseModel):
                 return f"{self.justwatch_watch_option.type.capitalize()} ${self.justwatch_watch_option.price}"
         else:
             return ""
+
+    @validator("poster_url", pre=True)
+    def strip_poster_url_query(cls, value):
+        return urljoin(value, urlparse(value).path)
 
 
 class LetterboxdResponseCollection(BaseModel):

@@ -39,14 +39,6 @@ LETTERBOXD_LIST_URL = "https://letterboxd.com/markreckard/watchlist"
 def find_movies_from_letterboxd_list_page(soup: BeautifulSoup) -> list[dict]:
     items = soup.find_all("div", {"class": "really-lazy-load"})
 
-    keys = [
-        {
-            "buster": item.attrs["data-cache-busting-key"],
-            "slug": item.attrs["data-film-slug"],
-        }
-        for item in items
-    ]
-
     lbxd_urls = [
         f"https://letterboxd.com/ajax/poster{item.attrs['data-film-slug']}std/125x187/?k={item.attrs['data-cache-busting-key']}"
         for item in items
@@ -60,9 +52,15 @@ def find_movies_from_letterboxd_list_page(soup: BeautifulSoup) -> list[dict]:
         souper = BeautifulSoup(comp, "html.parser")
         poster = souper.find("div", {"class": "poster"})
         if isinstance(poster, Tag):
-            all_relevant_attrs.append(
-                dict((k, poster.attrs[k]) for k in LETTERBOXD_MOVIE_DATA_ATTRS)
+            relevant_attrs = dict(
+                (k, poster.attrs[k]) for k in LETTERBOXD_MOVIE_DATA_ATTRS
             )
+            img = poster.find("img")
+            if isinstance(img, Tag):
+                srcset = img.get("srcset")
+                url = cast(str, srcset).replace(" 2x", "")
+                relevant_attrs["poster_url"] = url
+            all_relevant_attrs.append(relevant_attrs)
 
     return all_relevant_attrs
 
@@ -95,8 +93,8 @@ class ExtraDatasDict(TypedDict):
     genres_list: list[list[str]]
 
 
-@measure_execution("fetching extra_data from letterboxd/justwatch")
-def fetch_film_data_from_letterboxd(movies: list[LetterboxdMovie]):
+@measure_execution("fetching extra_data from letterboxd")
+def fetch_film_data_from_letterboxd(movies: list[LetterboxdMovie]) -> ExtraDatasDict:
     all_film_page_urls = [
         f"https://letterboxd.com{movie.letterboxd_url}" for movie in movies
     ]
@@ -111,7 +109,7 @@ def fetch_film_data_from_letterboxd(movies: list[LetterboxdMovie]):
         if isinstance(runtime_el, Tag):
             runtime_strings = list(runtime_el.stripped_strings)
             runtime = runtime_strings[0].split("\xa0")[0]
-            extra_datas["runtime"].append(runtime)
+            extra_datas["runtime"].append(runtime if runtime.isdigit() else "")
         genres_parent_el = soup.find("div", {"id": "tab-genres"})
         if isinstance(genres_parent_el, Tag):
             genre_el = genres_parent_el.find("div")

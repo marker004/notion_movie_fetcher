@@ -14,6 +14,7 @@ class NotionMovieItem:
     year: int
     letterboxd_id: str
     letterboxd_link: str
+    poster_url: str
     notion_id: Optional[str] = None
 
     def __eq__(self, other) -> bool:
@@ -38,6 +39,11 @@ class NotionMovieItem:
         letterboxd_id = properties["Letterboxd ID"]["rich_text"][0]["plain_text"]
         letterboxd_link = properties["Letterboxd Link"]["url"]
         year = properties["Year"]["number"]
+        poster_url = (
+            properties["Poster"]["files"][0]["external"]["url"]
+            if properties["Poster"]["files"]
+            else None
+        )
 
         return NotionMovieItem(
             title=title,
@@ -46,6 +52,7 @@ class NotionMovieItem:
             letterboxd_id=letterboxd_id,
             letterboxd_link=letterboxd_link,
             year=year,
+            poster_url=poster_url,
             notion_id=notion_id,
         )
 
@@ -93,6 +100,13 @@ class NotionMovieItem:
                     "content": self.letterboxd_link,
                 },
             },
+            {
+                "name": "Poster",
+                "type": "files",
+                "content": {
+                    "url": self.poster_url,
+                },
+            },
         ]
 
 
@@ -118,6 +132,9 @@ class Assembler:
     def format_letterboxd_link(self) -> str:
         return f"https://letterboxd.com{self.movie.letterboxd_url}"
 
+    def format_poster_url(self) -> str:
+        return self.movie.poster_url
+
     def notion_movie_item(self) -> NotionMovieItem:
         return NotionMovieItem(
             title=self.format_title(),
@@ -126,4 +143,5 @@ class Assembler:
             year=self.format_year(),
             letterboxd_id=self.format_letterboxd_id(),
             letterboxd_link=self.format_letterboxd_link(),
+            poster_url=self.format_poster_url(),
         )
