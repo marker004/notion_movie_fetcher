@@ -1,35 +1,20 @@
-from typing import Optional
+import asyncio
+from typing import Any, Optional, cast
 from shared_items.utils import measure_execution
-from shared_items.interfaces import Notion
+from shared_items.interfaces.notion import Notion, collect_paginated_api
 from assemblers.letterboxd_movie_assembler import NotionMovieItem
-from shared import MOVIE_DATABASE_ID, insert_to_database
+from shared import MOVIE_DATABASE_ID
 
 notion = Notion()
 
 
-def fetch_all_existing_movies() -> list[dict]:
-    movie_fetcher = fetch_movies()
-
-    all_movies: list[dict] = []
-    next_cursor: Optional[str] = None
-
-    while True:
-        response = movie_fetcher(next_cursor)
-        next_cursor = response["next_cursor"]
-        all_movies += response["results"]
-        if not response["has_more"]:
-            break
-
-    return all_movies
-
-
-def fetch_movies():
-    def func(start_cursor: Optional[str] = None):
-        return notion.client.databases.query(
-            database_id=MOVIE_DATABASE_ID, start_cursor=start_cursor
-        )
-
-    return func
+def recursively_fetch_existing_notion_movies(
+    filter: Optional[dict] = None,
+) -> list[dict]:
+    kwargs: dict[str, Any] = {"database_id": MOVIE_DATABASE_ID}
+    if filter:
+        kwargs["filter"] = filter
+    return collect_paginated_api(notion.client.databases.query, **kwargs)
 
 
 class NotionRepo:
@@ -49,7 +34,7 @@ class NotionRepo:
 
     @measure_execution(f"fetching existing movies")
     def fetch_existing_movies(self):
-        return fetch_all_existing_movies()
+        return recursively_fetch_existing_notion_movies()
 
     def assemble_existing_movie_items(self, notion_rows: list[dict]):
         return [
@@ -76,18 +61,18 @@ class NotionRepo:
 
     @measure_execution("deleting existing movies")
     def delete_unuseful_movies(self, delete_list: list[NotionMovieItem]):
-        total = len(delete_list)
-        for idx, item in enumerate(delete_list):
-            if item.notion_id:  # should always be true
-                notion.client.blocks.delete(block_id=item.notion_id)
-                print(idx / total, end="\r", flush=True)
+        asyncio.run(
+            notion.async_delete_all_blocks(
+                [cast(str, item.notion_id) for item in delete_list]
+            )
+        )
         print(f"deleted {len(delete_list)} movies")
 
     @measure_execution("inserting fresh movies")
     def insert_new_movies(self, insert_list: list[NotionMovieItem]):
         print([(item.title, item.location) for item in insert_list if item.location])
         insert_list_props = self.assemble_insertion_notion_props(insert_list)
-        insert_to_database(insert_list_props)
+        asyncio.run(notion.async_add_all_pages(MOVIE_DATABASE_ID, insert_list_props))
         print(f"inserted {len(insert_list)} movies")
 
     def operate_in_notion(
