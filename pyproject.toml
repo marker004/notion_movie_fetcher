@@ -9,7 +9,7 @@ python = "3.9.5"
 justwatch = "^0.5.1"
 shared-items = {git = "ssh://git@github.com/marker004/notion_shared_items.git", tag = "0.0.9" }
 # shared-items = {path = "../shared-items", develop = true}
-pydantic = "^1.10.5"
+pydantic = "^1.10.13"
 bs4 = "^0.0.1"
 requests = "^2.32.2"
 aiohttp = "^3.9.4"
