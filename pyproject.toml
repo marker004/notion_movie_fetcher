@@ -12,7 +12,7 @@ shared-items = {git = "ssh://git@github.com/marker004/notion_shared_items.git", 
 pydantic = "^1.10.13"
 bs4 = "^0.0.1"
 requests = "^2.32.2"
-aiohttp = "^3.9.4"
+aiohttp = "^3.10.2"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.0.0"
